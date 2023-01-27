@@ -1,0 +1,38 @@
+body{
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 300;
+  color:#333;
+}
+
+.fontw200{ font-weight: 200 !important;}
+.fontw300{ font-weight: 300 !important;}
+.fontw400{ font-weight: 400 !important;}
+.fontw500{ font-weight: 500 !important;}
+.fontw600{ font-weight: 600 !important;}
+.fontw700{ font-weight: 700 !important;}
+.fontw900{ font-weight: 900 !important;}
+
+.afterno:after,
+.beforno:before{ display: none !important;}
+
+
+.font181614{
+  font-size: 18px;
+  line-height: 1;  
+}
+@media (max-width:1023px) {
+  .font181614{
+    font-size: 16px;  
+  }  
+}
+@media (max-width:767px) {
+  .font181614{
+    font-size: 14px;  
+  }  
+}
+
+.darkmode{ background-color: #333; }
+.darkmode a{ color:white !important}
+
+.lightmode{ background-color: white;}
+.lightmode a{ color:#333 !important}

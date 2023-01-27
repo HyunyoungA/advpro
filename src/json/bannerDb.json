@@ -1,0 +1,22 @@
+{
+    "mainBanner" : [
+      {
+        "title" : ["h2태그에 삽입되는 큰 타이틀","p태그에 들어가는 작은 설명문구"],
+        "type": "a",
+        "href" : ["http://www.github.com","_blank"],
+        "cls" : ["event","bg-light"]
+      },
+      {
+        "title" : ["두번째기획배너이름","작은 설명문구"],
+        "type": "Link",
+        "href" : ["/promotion2",""],
+        "cls" : ["project","bg-danger"]
+      },
+      {
+        "title" : ["세번째기획배너이름","작은 설명문구"],
+        "type": "Link",
+        "href" : ["/promotion3",""],
+        "cls" : ["project","bg-info"]
+      }
+    ]
+  }

@@ -1,0 +1,9 @@
+a{ color:#333; text-decoration: none;}
+li{  list-style: none;}
+
+.hd{
+    
+}
+.hd h1 img{ height: 2.5rem; display: block;}
+.hd *{ margin-bottom: 0;}
+.hd  a{ padding: 0 1rem;}
