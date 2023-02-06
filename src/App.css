@@ -36,3 +36,15 @@ body{
 
 .lightmode{ background-color: white;}
 .lightmode a{ color:#333 !important}
+
+li a.active{
+  color: red !important;
+}
+
+.bg-light.swiper-slide{ background: url(./img/main1.jpg) no-repeat center; background-size: auto 100%;}
+.bg-danger.swiper-slide{ background: url(./img/main2.jpg) no-repeat center; background-size: auto 100%;}
+.bg-info.swiper-slide{ background: url(./img/main3.jpg) no-repeat center; background-size: auto 100%;}
+
+#sns button{ border:0;
+             border-radius: 5px;
+            }

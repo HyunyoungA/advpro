@@ -1,0 +1,24 @@
+{
+    "nav" : [
+        {
+            "title": "베스트",
+            "href": "#top"
+        },
+        {
+            "title": "자체제작",
+            "href": "#procss"
+        },
+        {
+            "title": "이벤트",
+            "href": "#review"
+        },
+        {
+            "title": "리뷰",
+            "href": "#review2"
+        },
+        {
+            "title": "문의하기",
+            "href": "#qna"
+        }
+    ]
+}

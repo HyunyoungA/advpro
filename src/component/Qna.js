@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 const Qna = () => {
+    const { 
+        //폼 안의 클릭함수
+        handleSubmit,
+        //전송관련함수
+        register,
+        //유효성검사 : 처음 폼이 비어있으므로 errors로 시작한다.
+        formState: { errors } } = useForm();
+        //검수함수
+        const onSubmit = values => console.log(values);
+
     //중복제출막기 : 버튼제어
-    const [statue, updateStatue] = useState(false);
-    const [values, setValues] = useState({
-        comNm: "",
-        email: "",
-        password: "",        
-        content: ""
-      })
+    // const [statue, updateStatue] = useState(false);
+    // const [values, setValues] = useState({
+    //     comNm: "",
+    //     email: "",
+    //     password: "",        
+    //     content: ""
+    //   })
 
     // const [ password, setPassword ] = useState("");
     // const [ statue, updateStatue] = useState(false);
@@ -25,27 +36,63 @@ const Qna = () => {
     //     updateStatue(false); // 다시버튼기능돌려줘
     // }
     
-    const handleChange = (e) =>{
-        setValues({
-            ...values,
-            [e.target.name] : e.target.value
-        })
-        //input의 name을 변수이름과 같이 해서 식을 심플하게 처리
-    }
-    const sendform = async (e) => {
-        e = e || window.event;
-        e.preventDefault();//새로고침 막기
-        updateStatue(true);//버튼 막기
-        //데이터를 전송하거나 유효성검사
-        await new Promise( (r) => setTimeout(function(){
-            
-        }, 1000)) //await 앞에 넣어주면 동기화로 된다. Promise는 비동기
-        updateStatue(false);//버튼 정상화
-    }
+    // const handleChange = (e) =>{
+    //     setValues({
+    //         ...values,
+    //         [e.target.name] : e.target.value
+    //     })
+    //     //input의 name을 변수이름과 같이 해서 식을 심플하게 처리
+    // }
+    // const sendform = async (e) => {
+    //     e = e || window.event;
+    //     e.preventDefault();//새로고침 막기
+    //     updateStatue(true);//버튼 막기
+    //     //데이터를 전송하거나 유효성검사
+    //     await new Promise( (r) => setTimeout(function(){
+    //         alert(JSON.stringify(values, null, 10))//문자열로 보여준다. 자바스크립트를 순수 메모로 보내기위해
+    //         //첫번째자리 필수 두번째 세번째는 선택,null은 키값 자리, 10은 가독성때문에 띄어쓰기 공백10개 넣겠다.
+    //     }, 1000)) //await 앞에 넣어주면 동기화로 된다. Promise는 비동기
+    //     updateStatue(false);//버튼 정상화
+
+
     return (
-        <div id="qna" className='py-5'>
+        <div id="qna" className='py-5 col-6 mx-auto'>
             <h2 className='text-center py-5'>문의하기</h2>
-            <form onSubmit={ sendform } className='col-6 mx-auto'>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <ul>
+                    <li className='mb-2 '>
+                    <input
+                    placeholder='email'
+                    className='w-100 d-block'
+                    type="email"
+                    {...register("email", {
+                        required: "Required",
+                        pattern: {
+                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                            message: "invalid email address"
+                        }
+                    })}
+                    />
+                    {/* formState의 설정해둔 errors의 이메일에러 메세지출력 */}
+                    {errors.email && errors.email.message}
+                    </li>
+                    <li className='mb-2 '>
+                        <input
+                        placeholder='username'
+                        className='w-100 d-block'
+                        {...register("username", {
+                            validate: value => value !== "admin" || "Nice try!"
+                        })}
+                        />
+                    {errors.username && errors.username.message} 
+                    </li>
+                </ul>
+                <p className='d-flex justify-content-end'>
+                    <button type="submit">Submit</button>
+                </p>
+            </form>
+
+            {/* <form onSubmit={ sendform } className='col-6 mx-auto'>
                 <ul>
                     <li className='my-3'>
                         <input type="text" 
@@ -94,7 +141,7 @@ const Qna = () => {
                          /> */}
                 {/* <button type="submit" disabled={statue}>변경하기</button> */}
                              
-            </form>            
+            {/* </form> */} 
         </div>
     );
 }
